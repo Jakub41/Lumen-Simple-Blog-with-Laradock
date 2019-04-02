@@ -26,3 +26,13 @@ $router->post('posts/{post}/delete','PostsController@destroy');
 $router->get('get', ['middleware' => 'check-age', function () {
     return App\Post::all();
 }]);
+
+$router->post('/auth/login', 'AuthController@postLogin');
+$router->group(['middleware' => 'auth:api'], function($router)
+{
+    $router->get('/test', function() {
+        return response()->json([
+            'message' => 'Hello World!',
+        ]);
+    });
+});

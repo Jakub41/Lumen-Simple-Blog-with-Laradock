@@ -17,3 +17,11 @@ $factory->define(App\Post::class, function (Faker\Generator $faker) {
         'description' => $faker->text, //create dummy description
     ];
 });
+
+$factory->define(App\User::class, function (Faker\Generator $faker) {
+    return [
+        'name'     => 'Jake',
+        'email'    => 'jake@gmail.com',
+        'password' => app('hash')->make('secret'),
+    ];
+});

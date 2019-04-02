@@ -1,5 +1,7 @@
 <?php
 
+use App\Post;
+use App\User;
 use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
@@ -11,6 +13,9 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        $this->call('PostsTableSeeder'); // php artisan db:seed will trigger this part 
+        Post::truncate();
+        User::truncate();
+        $this->call('PostsTableSeeder'); // php artisan db:seed will trigger this part
+        $this->call('UsersTableSeeder'); // php artisan db:seed will trigger this part
     }
 }
