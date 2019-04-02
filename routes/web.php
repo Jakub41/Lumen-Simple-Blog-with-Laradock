@@ -15,3 +15,5 @@
 $router->get('posts/all', function () use ($router) {
     return App\Post::all();
 });
+
+$router->get('posts/{post}/show','PostsController@show'); //whenever this endpoint is hit get the file PostsController and execute show method
