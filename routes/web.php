@@ -11,6 +11,7 @@
 |
 */
 
-$router->get('/', function () use ($router) {
-    return $router->app->version();
+// end point for all posts
+$router->get('posts/all', function () use ($router) {
+    return App\Post::all();
 });
