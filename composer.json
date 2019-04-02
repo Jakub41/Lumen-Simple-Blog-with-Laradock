@@ -10,7 +10,7 @@
         "vlucas/phpdotenv": "^3.3",
         "tymon/jwt-auth": "^1.0",
         "guzzlehttp/guzzle": "^6.3",
-        "illuminate/mail": "^5.7",
+        "illuminate/mail": "^5.7"
     },
     "require-dev": {
         "fzaninotto/faker": "^1.4",
