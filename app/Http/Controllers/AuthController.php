@@ -2,9 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Controllers\Controller;
-use Illuminate\Http\Request;
 use Tymon\JWTAuth\JWTAuth;
+use App\Events\UserLoggedIn;
+use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
 
 class AuthController extends Controller
 {
@@ -44,6 +45,10 @@ class AuthController extends Controller
             return response()->json(['token_absent' => $e->getMessage()], 500);
 
         }
+
+        // login is successful. fire an event to send a mail to user with ip addr
+    event((new UserLoggedIn($request)));
+
 
         return response()->json(compact('token'));
     }
