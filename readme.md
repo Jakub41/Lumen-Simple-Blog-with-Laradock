@@ -87,4 +87,4 @@ The steps were showed above what to do with Laradock and Docker parts.
 One can connect via a program like Sequel Pro or Navicat or else to the MySQL container. Then need to create the DB.
 
 Example of a connection set up:
-![connectionDB](/images/2019/04/Edit_Connection_Laradock__MySQL.png)
+![connection_db](doc/Edit_Connection_Laradock__MySQL.png)
