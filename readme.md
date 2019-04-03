@@ -88,3 +88,29 @@ One can connect via a program like Sequel Pro or Navicat or else to the MySQL co
 
 Example of a connection set up:
 ![connection_db](doc/Edit_Connection_Laradock__MySQL.png)
+
+Remember the name of the DB need to be put inside the `.env` file along with the credetials of it.
+
+```
+DB_CONNECTION=mysql
+DB_HOST=mysql -> This need to be in this way and if any connection issues please refer to the troubleshoot section above
+DB_PORT=3306  -> Change this if you use a different port
+DB_DATABASE= < DB_NAME >
+DB_USERNAME= < DB_USERNAME >
+DB_PASSWORD= < DB_PASSWORD >
+```
+
+After one done the first preliminary set up steps, then is the time to move forward creating the API itself.
+
+**4) Eloquent**
+
+In simple words allows calling built-in functions instead of writing complex queries. The Eloquent ORM included with **Laravel/Lumen** provides a beautiful, simple **ActiveRecord** implementation for working with the database. Each database table has a corresponding **Model** which is used to interact with that table. Models allow you to query for data in your tables, as well as insert new records into the table. For example, one can say `Post::all()` to get all the blog posts inside posts table rather than writing `select * from posts`. Where Post in `Post::all() is a `model`.
+
+Then to use **Eloquent** one will uncomment the `$app->withEloquent()`
+in your `bootstrap/app.php`
+
+**5) Facades**
+
+A **facade** class is a wrapper around a few classes serving a particular purpose to make a series of steps required to perform a task in a single function call.
+
+Then i will uncomment the `$app->withFacades()` call inside `bootstrap/app.php` file to use **Laravel Facade**.
