@@ -39,6 +39,8 @@ Following the instructions one should be able to run this project or at least ha
 12. Default values `username:root password:root host:mysql`
 13. Update database name and else in `.env`
 
+Remember all the the **Docker** commands have to be run it under **Laradock** folder as there the Docker files are placed.
+
 If one wants to run this project as it is after `composer install` run migration as `php artisan migrate` to update the DB with the right tables. Then seed with `php artisan db:seed` to populate the DB with some fake data.
 
 ## Troubleshoot some possible issues
@@ -54,3 +56,12 @@ ALTER USER 'root'@'localhost' IDENTIFIED WITH mysql_native_password BY 'root';
 ALTER USER 'root'@'%' IDENTIFIED WITH mysql_native_password BY 'root';
 ALTER USER 'default'@'%' IDENTIFIED WITH mysql_native_password BY 'secret';
 ```
+
+May be need to restart the container after the changes
+```
+$ docker-compose down
+$ docker-compose up -d nginx mysql
+```
+
+## Tutorial
+How to create a **Simple Blog API**. Step by step explanations to get start with **Lumen**
