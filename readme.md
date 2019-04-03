@@ -65,3 +65,26 @@ $ docker-compose up -d nginx mysql
 
 ## Tutorial
 How to create a **Simple Blog API**. Step by step explanations to get start with **Lumen**
+
+**1) Create a Lumen project**
+
+First one need to instal Lumen via Composer:
+```
+composer global require "laravel/lumen-installer"
+```
+
+Then can run:
+
+```
+lumen new blog
+```
+
+**2) Clone Laradock inside the Blog folder project**
+
+The steps were showed above what to do with Laradock and Docker parts.
+
+**3) Connect to the MySQL container**
+One can connect via a program like Sequel Pro or Navicat or else to the MySQL container. Then need to create the DB.
+
+Example of a connection set up:
+![connectionDB](/images/2019/04/Edit_Connection_Laradock__MySQL.png)
