@@ -114,3 +114,51 @@ in your `bootstrap/app.php`
 A **facade** class is a wrapper around a few classes serving a particular purpose to make a series of steps required to perform a task in a single function call.
 
 Then i will uncomment the `$app->withFacades()` call inside `bootstrap/app.php` file to use **Laravel Facade**.
+
+**6) Posts**
+Then inside the **app** folder, will create `Post.php`. It is called a model in **MVC framework**. It will reflect **posts table** inside database which has not been created yet Inside this model will have set some fillable `fields =>name` and `description` as all **Eloquent models** protect against mass-assignment by default. A **mass-assignment** vulnerability occurs when a user passes an unexpected HTTP parameter through a request, and that parameter changes a column in your database you did not expect
+
+See more at [mass-assignment](https://laravel.com/docs/5.7/eloquent#mass-assignment)
+
+**7)Create a migration**
+
+To create a migration one need to be inside the **Docker container workspace**:
+```
+docker-compose exec workspace bash
+```
+
+Then:
+
+```
+root@688df818e9b7:/var/www# php artisan make:migration create_posts_table
+```
+
+This will create migration file inside `database/migrations`
+
+Example: `2019_02_08_134013_create_posts_table.php`
+
+A migration file usually defines the schema of the database table.
+
+See more at [migrations](https://laravel.com/docs/5.7/migrations)
+
+Then run command
+```
+php artisan migrate
+```
+This will migrate schema to database according to what is present in migration file. Now your database will have **posts table**.
+This is how Eloquent makes it so easy to create tables, share this schema with the team and use its simple functions to generate complex sql queries.
+
+**8) Test the API**
+
+Now the issue how we test the API if we do not have any data to
+test actually.
+
+**Lumen** has a very fine way to create dummy data. It is called **Model Factories**. That uses [Faker](https://github.com/fzaninotto/Faker) package behind the scenes. Let's dive into.
+
+Inside `database/factories/ModelFactory.php` will define a factory for each table (1 only for posts table in this case). A factory is a suitable word because a factory creates object based on rules defined inside the factory.
+
+Now we need the a **seeder class** to call this factory to start creating objects and tell it a number to produce as well. So command `php artisan make:seeder PostsTableSeeder.
+
+Will ask it to create 20 objects whenever it is called. Inside
+`database/seeds/DatabaseSeeder.php` call `PostsTableSeeder`.
+Now we will run `php artisan db:seed` command to seed the database. Which will call `run()` in `DatabaseSeeder.php` and seed all listed seeders. We now have 20 dummy records inside posts table.
