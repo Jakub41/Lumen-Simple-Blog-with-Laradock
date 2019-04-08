@@ -40,7 +40,7 @@ $router->group(['middleware' => 'auth:api'], function($router)
 {
     $router->get('/test', function() {
         return response()->json([
-            'message' => 'Hello World!',
+            'message' => 'Yeah you can access!',
         ]);
     });
 });

@@ -1,6 +1,5 @@
 <?php
 
-use App\Post;
 use Illuminate\Database\Seeder;
 
 class PostsTableSeeder extends Seeder
@@ -12,6 +11,6 @@ class PostsTableSeeder extends Seeder
      */
     public function run()
     {
-        factory(Post::class, 20)->create(); // whenever this is called created 20 records for posts based on rules defined in model factory for posts
+        factory(App\Post::class, 20)->create(); // whenever this is called created 20 records for posts based on rules defined in model factory for posts
     }
 }

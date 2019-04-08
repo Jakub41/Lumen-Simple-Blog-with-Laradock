@@ -148,7 +148,7 @@ php artisan migrate
 This will migrate schema to database according to what is present in migration file. Now your database will have **posts table**.
 This is how Eloquent makes it so easy to create tables, share this schema with the team and use its simple functions to generate complex sql queries.
 
-**8) Test the API**
+**8) Fake data to use for the test of the API**
 
 Now the issue how we test the API if we do not have any data to
 test actually.
@@ -162,3 +162,17 @@ Now we need the a **seeder class** to call this factory to start creating object
 Will ask it to create 20 objects whenever it is called. Inside
 `database/seeds/DatabaseSeeder.php` call `PostsTableSeeder`.
 Now we will run `php artisan db:seed` command to seed the database. Which will call `run()` in `DatabaseSeeder.php` and seed all listed seeders. We now have 20 dummy records inside posts table.
+
+Example:
+![seeds](doc/Screenshot 2019-04-03 at 23.57.20.png)
+
+**9) API end points**
+
+If we go to `routes/web.php` here is we define our endpoints/routes. For example if one wants to get all posts one will set an endpoint with `url posts/all`.
+See the file. One used `Post::all()` (in a callback function)
+which is **Eloquent** way to fetch all the results for a
+model which has also been discussed earlier.
+Now if one hit the endpoint through **Postman** or visit in browser
+`localhost/posts/all` one should see 20 blog posts in json.
+
+Example:

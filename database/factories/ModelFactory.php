@@ -22,6 +22,6 @@ $factory->define(App\User::class, function (Faker\Generator $faker) {
     return [
         'name'     => 'Jake',
         'email'    => 'jake@gmail.com',
-        'password' => app('hash')->make('secret'),
+        'password' => app('hash')->make('delfino'),
     ];
 });

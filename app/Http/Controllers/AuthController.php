@@ -47,7 +47,7 @@ class AuthController extends Controller
         }
 
         // login is successful. fire an event to send a mail to user with ip addr
-    event((new UserLoggedIn($request)));
+        event((new UserLoggedIn($request)));
 
 
         return response()->json(compact('token'));
